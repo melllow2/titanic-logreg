@@ -11,13 +11,16 @@ document.getElementById("predictionForm").addEventListener("submit", async funct
   };
 
   try {
-    const response = await fetch("https://beliul-titanic-logreg-v2pa.onrender.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+    const response = await fetch(
+      "https://beliul-titanic-logreg-v2pa.onrender.com/predict",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+    );
 
     const result = await response.json();
 
@@ -30,6 +33,7 @@ document.getElementById("predictionForm").addEventListener("submit", async funct
     document.getElementById("result").innerText = "Error connecting to backend.";
   }
 });
+
 
 
 
